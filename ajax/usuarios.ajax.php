@@ -1,3 +1,4 @@
+gi
 <?php
 
 require_once "../controladores/usuarios.controlador.php";

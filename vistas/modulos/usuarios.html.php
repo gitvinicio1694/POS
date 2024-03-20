@@ -241,12 +241,12 @@
           
         </div>
 
-        <?php
+        <!--<?php
 
-        $crearUsuario = new ControladorUsuarios();
-        $crearUsuario -> ctrCrearUsuario();
+        #$crearUsuario = new ControladorUsuarios();
+        #$crearUsuario -> ctrCrearUsuario();
         
-        ?>
+        ?>-->
 
         </form>
         
