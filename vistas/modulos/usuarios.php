@@ -47,7 +47,7 @@
                 <th>Perfil</th>
                 <th>Estado</th>
                 <th>Ultimo login</th>
-                <th>Acciones</th>
+                <th style="width: 30px;">Acciones</th>
 
               </tr>
 

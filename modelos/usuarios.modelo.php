@@ -25,43 +25,41 @@ static public function mdlMostrarUsuarios($tabla, $item, $valor){
 
 }
 
+
+/*===========================================
+=            REGISTRO DE USUARIO  
+Creo la clase ModeloUsuarios  esta me extrae los datos de la BD  creando un metodo(funcion llamada mdlMostrarUsuarios) en donde declaro los parametros $tabla , $item, $valor estos reemplazaran a la sentencia SQL que extraera los datos de la tabla usurios.Luego  creo una variable $stmt esta me permite guardar la preparacion de la conexion de la tabla para seleccionar el nombre de la tabla, el nombre de usurio y el valor de toda la fila de ese usuario, una vez extraido y guardado dentro de mi variable $stmt ejecuto y cierro la extraccion.
+===========================================*/
+
+
 /*===========================================
 =            REGISTRO DE USUARIO            =
 ===========================================*/
-/*static public function ctrCrearUsuario(){
+static public function mdlIngresarUsuario($tabla, $datos){
 
-    if(isset($_POST["nuevoUsuario"])){
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, usuario, password, perfil) VALUES (:nombre, :usuario, :password, :perfil)");
 
-        if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$', $_POST["nuevoNombre"]) && 
-            preg_match('/^[a-zA-Z0-9]+$', $_POST["nuevoUsuario"]) &&
-            preg_match('/^[a-zA-Z0-9]+$', $_POST["nuevoPassword"])) {
-            // code...
+        $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+        $stmt->bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
+        $stmt->bindParam(":password", $datos["password"], PDO::PARAM_STR);
+        $stmt->bindParam(":perfil", $datos["perfil"], PDO::PARAM_STR);
+        
+
+        if($stmt->execute()){
+
+            return "ok";    
+
         }else{
 
-            echo '<script>
-                 
-                 swal({
-
-                    type: "error",
-                    tittle: "!El usuario no puede ir vacio o llevar caracteres especiales",
-                    showConfirmButton: true,
-                    confirmButtonText: "Cerrar",
-                    closeOneConfirm: false
-
-                 }).then((result)=>{
-
-                    if(result.value){
-
-                        window.location = "usuarios";
-
-                    }
-
-                    });
-
-            </script>';
+            return "error";
+        
         }
+
+        $stmt->close();
+        
+        $stmt = null;
+
     }
-}*/
   
 }
 

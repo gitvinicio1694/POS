@@ -154,3 +154,16 @@ CUERPO DOCUMENTO
 
 </body>
 </html>
+
+<!-------------------------------------------------------------------------------------------------
+               EXPLICACION DEL CODIGO
+               
+En esta pagina mostraremos todas las vistas al usuario a partir de aqui se muestra todo secciones, registros, tablas, modulos, alertas, graficos, etc..
+En la parte superior realizo el llamado a todos los Plugins de css y javascript estos me ayudaran con el diseno y funcionalidad de la pagina.
+
+En la primera seccion  del CUERPO DEL DOCUMENTO declaro  cuando el index.php  direccione a plantilla.php me diga si vengo logueado me muestre todos los modulos como cabezote, menu y footer, en caso de no venga el usuario logueado me enviara  a la pagina de login.php para que valide el usuario y contrasena y le envie de nuevo a esta pagina 
+
+En el modulo de MENU cuando el usuario de click en las diferentes secciones del menu el  IF me dira si existe una varaiable $_GET con el parametro ruta el cual va ser igual a inicio, usuarios, clientes etc... me enviara a la pagina  mediante un include con la ruta modulos/nombre del patrametro que traemos mediante [RUTA] y concatenara con .PHP
+
+
+--------------------------------------------------------------------------------------------------->
